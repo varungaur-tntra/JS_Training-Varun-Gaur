@@ -10,7 +10,11 @@ List of Functions used:
 At the end, used console.log statements to display the required elements as per mentioned by the assignment.
 
 Average Score: 68.95238095238095
+
 Highest Score: Isabella (97)
+
 Lowest Score: Farhan (20)
+
 Grade Distribution: {A: 4, B: 4, C: 4, D: 5, F: 4}
+
 Students needing to retake: Chetna Jacob Susan Farhan
