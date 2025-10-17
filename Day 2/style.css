@@ -1,0 +1,133 @@
+#data-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+body h1 {
+  text-align: center;
+}
+
+.item-card {
+  width: 250px;
+  height: 350px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.item-content {
+  width: 250px;
+  height: 300px;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.item-card h3 {
+  font-size: 16px;
+  text-align: center;
+}
+
+.item-card span {
+  font-size: 14px;
+}
+
+.item-card button {
+  padding: 6px 12px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+}
+
+.item-card img {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  align-items: center;
+}
+
+.item-card p {
+  overflow: auto; /* scroll if text is too long */
+  word-wrap: break-word; /* wrap long words */
+  text-overflow: ellipsis; /* graceful cut-off */
+  height: 100%;
+  margin: 0;
+  padding: 5px;
+  font-size: 14px;
+}
+
+/* Cart summary section */
+.cart-summary {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary h2 {
+  margin-bottom: 10px;
+  color: #222;
+  font-size: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.cart-summary li span {
+  text-align: right;
+}
+
+.selected-header {
+  text-align: center;
+}
+
+#selected-items {
+  list-style: decimal;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Price summary layout */
+.price-summary h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.price-summary h3 {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.price-summary h1 {
+  color: #007bff;
+  font-size: 32px;
+  text-align: right;
+  margin-top: 20px;
+  font-weight: 700;
+}
