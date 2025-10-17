@@ -1,7 +1,7 @@
 # JS_Training-Varun-Gaur
 Repository for Javascript Assignments
 
-#Day 1 Assignment Challenge 
+# Day 1 Assignment Challenge 
 
 List of Functions used:
 1. averageScore: returns a value of the average score based on the entire list of students
