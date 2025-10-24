@@ -1,82 +1,78 @@
-//text check block
-
+const form = document.querySelector("form");
+const submitButton = document.getElementById("submitButton");
 const checkText = document.getElementById("username");
-const getEmailLabel = document.getElementById("textWarning");
+const checkEmail = document.getElementById("email");
+const checkAge = document.getElementById("userage");
 
-checkText.addEventListener("input", () => {
-  const textLength = checkText.value.trim().length;
-  if (textLength < 2 || textLength > 50) {
-    getEmailLabel.textContent =
-      "Characters should greater than equal to 2 AND less than equal to 50";
+// --- DATE CHECK BLOCK ---
+const checkDate = document.getElementById("userbirth");
+document.addEventListener("DOMContentLoaded", () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const date = String(today.getDate()).padStart(2, "0");
+  checkDate.setAttribute("max", `${year}-${month}-${date}`);
+});
+
+// --- VALIDATION FUNCTION (CENTRALIZED CONTROL) ---
+function validateForm() {
+  let isValid = true;
+
+  // Username validation
+  const getEmailLabel = document.getElementById("textWarning");
+  const name = checkText.value.trim();
+  if (name.length < 2 || name.length > 50) {
+    getEmailLabel.textContent = "Characters should be ≥ 2 and ≤ 50";
+    isValid = false;
   } else {
     getEmailLabel.textContent = "";
   }
-});
 
-// email check block
-
-const checkEmail = document.getElementById("email");
-
-checkEmail.addEventListener("input", () => {
-  const textEmail = checkEmail.value.trim();
-  const regexPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+  // Email validation
   const getEmailWarning = document.getElementById("emailWarning");
-  if (!regexPattern.test(textEmail)) {
+  const email = checkEmail.value.trim();
+  const regexPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!regexPattern.test(email)) {
     getEmailWarning.textContent = "Please enter a valid email address";
+    isValid = false;
   } else {
     getEmailWarning.textContent = "";
   }
-});
 
-// age check block
-
-const checkAge = document.getElementById("userage");
-
-checkAge.addEventListener("input", () => {
-  const intAge = parseInt(checkAge.value.trim());
-
+  // Age validation
   const ageWarning = document.getElementById("ageWarning");
-  if (intAge >= 1 && intAge <= 120) {
-    ageWarning.textContent = "";
-  } else {
+  const intAge = parseInt(checkAge.value.trim());
+  if (!(intAge >= 1 && intAge <= 120)) {
     ageWarning.textContent = "Age is restricted between 1 and 120";
+    isValid = false;
+  } else {
+    ageWarning.textContent = "";
   }
-});
 
-// date check block
-
-const checkDate = document.getElementById("userbirth");
-
-document.addEventListener("DOMContentLoaded", () => {
-  const today = new Date();
-
-  const year = today.getFullYear();
-  const month = String(today.getMonth() + 1).padStart(2, "0"); // +1 and pad
-  const date = String(today.getDate()).padStart(2, "0"); // pad
-
-  const maxDate = `${year}-${month}-${date}`;
-  checkDate.setAttribute("max", maxDate);
-});
-
-// checkbox check
-
-document.querySelector("form").addEventListener("input", (e) => {
+  // Hobby validation
+  const hobbyWarning = document.getElementById("hobbyWarning");
   const checkboxes = document.querySelectorAll(
     '.hobbySelector input[type="checkbox"]'
   );
-  const hobbyWarning = document.getElementById("hobbyWarning");
-  const submitButton = document.getElementById("submitButton");
   const atLeast1 = Array.from(checkboxes).some((cb) => cb.checked);
-
-  if (atLeast1) {
-    hobbyWarning.textContent = "";
-    submitButton.disabled = false;
+  if (!atLeast1) {
+    hobbyWarning.textContent = "Please select at least one hobby";
+    isValid = false;
   } else {
-    hobbyWarning.textContent = "Please enter atleast one hobby";
-    submitButton.disabled = true;
+    hobbyWarning.textContent = "";
   }
-});
+
+  submitButton.disabled = !isValid;
+}
+
+// --- EVENT LISTENERS (call unified validation) ---
+checkText.addEventListener("input", validateForm);
+checkEmail.addEventListener("input", validateForm);
+checkAge.addEventListener("input", validateForm);
+checkDate.addEventListener("input", validateForm);
+form.addEventListener("input", validateForm); // catches checkbox and others too
+
+submitButton.disabled = true;
 
 // country fetch list for Country Dropdown, used 3rd party API
 
@@ -101,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // JSOn Parse Code
-const form = document.querySelector("form");
+// const form = document.querySelector("form");
 const submittedEmails = new Set();
 let records = [];
 let firstEnter = false;
