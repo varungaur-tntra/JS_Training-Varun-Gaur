@@ -39,3 +39,21 @@ Subtotal = Sum of (price of the item * quantity of the item)
 Quantity Discount (applicable only when there are more than 10 items/products only, identical items will be counted, and will not trigger even when there are exact 10 items): Subtotal * 0.1 (calculates 10% of the subtotal to calculate the same discount)
 Price Discount (calculated based on subtotal, if subtotal is greater than 500, 5% discount will be calculated on the final price): Subtotal * 0.05
 Final Price = Subtotal - Quantity Discount - Price Discount
+
+# Day 3 Assignment Challenge
+
+Day 3 assignment is based on the project Form FIlling submission, which contains JSON Parser and localStorage usage, which stores and read files locally on the device to configure the theme mode and save details locally
+
+For loading the calendar, date, month and year, DOMContentLoad is used, to make changes on the input tag within, some adjustments were made to match month value with the name and paddings. Following are the validations to consider when entering the input:
+
+1. Username length shouln't be less than equal to 2 AND greater than equal to 50
+2. Email address should have ONLY one at-the-rate (@)
+3. Age should be between 1 and 120
+4. Gender criteria is required and displayed while on submitting
+5. There should be atleast one hobby selected on the checkbox
+
+if any of the crtiteria fails, the submit button will be disabled
+
+To fetch the list of all countries in a single dropdown, an API was called to list the same. When any record gets submitted, a new div will be created to display the details entered for. 
+On localStorage, theme mode and filled details (JSON Format) is stored. So that it the server restarts, the previous stored configurations will be restored.
+While clicking on the submit button, an event will be called to collect the entries made on the several inputs, also an array will sotre email records to remove duplicacy.
