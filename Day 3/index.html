@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3 Assignment - Varun Gaur</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header-panel">
+      <h1>Form Filling</h1>
+      <div class="themeButton" id="themeButton">
+        <img src="darkMode.png" alt="No Image Found" id="darkModeButton" />
+        <img src="lightMode.png" alt="No Image Found" id="lightModeButton" />
+      </div>
+    </div>
+    <main>
+      <div class="container" id="container">
+        <div class="formBox">
+          <form action="index.html" method="post" id="userForm">
+            <label for="username">Name: </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter Your Name..."
+              required
+            />
+            <p id="textWarning"></p>
+            <br />
+            <label for="email">Email: </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter Your Email Address"
+              required
+            />
+            <p id="emailWarning"></p>
+            <br />
+            <label for="age">Age: </label>
+            <input
+              type="text"
+              id="userage"
+              name="age"
+              placeholder="How old are you?"
+              required
+            />
+            <p id="ageWarning"></p>
+            <br />
+            <label for="date">Date: </label>
+            <input
+              type="date"
+              id="userbirth"
+              name="date"
+              placeholder="Enter your DOB"
+              required
+            />
+            <p id="userDate"></p>
+            <br />
+
+            <div class="genderSelector">
+              <label for="gender">Gender: </label>
+              <input
+                type="radio"
+                id="userMale"
+                name="gender"
+                value="gender"
+                required
+              />
+              <label for="gender">Male</label>
+              <input
+                type="radio"
+                id="userFemale"
+                name="gender"
+                value="gender"
+              />
+              <label>Female</label>
+            </div>
+            <br />
+
+            <div class="hobbyBox">
+              <div class="hobbySelector">
+                <label for="hobbies">Hobbies: </label>
+                <input
+                  type="checkbox"
+                  id="userReading"
+                  name="hobbies"
+                  value="Reading"
+                />
+                <label for="hobbies">Reading</label>
+                <input
+                  type="checkbox"
+                  id="userTraveling"
+                  name="hobbies"
+                  value="Traveling"
+                />
+                <label for="hobbies">Traveling</label>
+                <input
+                  type="checkbox"
+                  id="userCoding"
+                  name="hobbies"
+                  value="Coding"
+                />
+                <label for="hobbies">Coding</label>
+                <input
+                  type="checkbox"
+                  id="userMusic"
+                  name="hobbies"
+                  value="Music"
+                />
+                <label>Music</label>
+              </div>
+              <br />
+              <p id="hobbyWarning"></p>
+            </div>
+            <label for="hobbies">Select Your Country: </label>
+            <select id="countrySelect" name="hobbies"></select>
+            <br />
+            <button type="submit" id="submitButton">Submit</button>
+            <span id="submitWarning"></span>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
