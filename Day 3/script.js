@@ -22,7 +22,8 @@ function validateForm() {
   const getEmailLabel = document.getElementById("textWarning");
   const name = checkText.value.trim();
   if (name.length < 2 || name.length > 50) {
-    getEmailLabel.textContent = "Characters should be ≥ 2 and ≤ 50";
+    getEmailLabel.textContent =
+      "Characters should be ;ess than equal to 2 AND greater than equal to 50";
     isValid = false;
   } else {
     getEmailLabel.textContent = "";
@@ -66,11 +67,11 @@ function validateForm() {
 }
 
 // --- EVENT LISTENERS (call unified validation) ---
-checkText.addEventListener("input", validateForm);
-checkEmail.addEventListener("input", validateForm);
-checkAge.addEventListener("input", validateForm);
-checkDate.addEventListener("input", validateForm);
-form.addEventListener("input", validateForm); // catches checkbox and others too
+checkText.addEventListener("change", validateForm);
+checkEmail.addEventListener("change", validateForm);
+checkAge.addEventListener("change", validateForm);
+checkDate.addEventListener("change", validateForm);
+form.addEventListener("change", validateForm); // catches checkbox and others too
 
 submitButton.disabled = true;
 
